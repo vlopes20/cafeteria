@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Image, ScrollView, StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
-import Header from './components/header';
-import Footer from './components/footer';
+import { Image, ScrollView, StyleSheet, Text, View, TextInput, KeyboardAvoidingView } from 'react-native';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import CoffeeCard from './components/CoffeeCard';
+import CustomButton from './components/CustomButton';
 
 
 export default function App() {
@@ -58,9 +59,8 @@ export default function App() {
               onChangeText={setName}
               >
             </TextInput>
-            <TouchableOpacity style={styles.button} onPress={handleOrder}>
-              <Text style={styles.buttonText}>Fazer meu pedido</Text>
-            </TouchableOpacity>
+            
+            <CustomButton title='Fazer meu pedido' onPress={handleOrder}/>
 
             {message !== '' && <Text style={styles.messageText}>{message}</Text>}
           </View>
@@ -164,20 +164,6 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     paddingHorizontal: 20,
     fontSize: 16
-  },
-  button: {
-    backgroundColor: '#c67c4e',
-    width: '100%',
-    borderRadius: 30,
-    paddingHorizontal: 30,
-    paddingVertical: 16,
-    alignItems: 'center',
-    marginTop: 20,
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: '700'
   },
   messageText: {
     fontSize: 16,
